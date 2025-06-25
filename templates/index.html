@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clasificación de Calidad del Café</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a3c2f;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: #222;
+            font-weight: bold;
+            background-color: #e8f5e9;
+            padding: 10px;
+            border: 1px solid #c8e6c9;
+            border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clasificador de Café</h1>
+        <form method="post">
+            <label for="acidez">Acidez (4.0 - 7.0):</label>
+            <input type="number" step="0.1" name="acidez" min="4.0" max="7.0" required>
+
+            <label for="cafeina">Cafeína (0.5 - 2.0):</label>
+            <input type="number" step="0.1" name="cafeina" min="0.5" max="2.0" required>
+
+            <label for="humedad">Humedad (5.0 - 12.0):</label>
+            <input type="number" step="0.1" name="humedad" min="5.0" max="12.0" required>
+
+            <label for="aroma">Aroma (1 - 10):</label>
+            <input type="number" step="1" name="aroma" min="1" max="10" required>
+
+            <button type="submit">Clasificar Calidad</button>
+        </form>
+
+        {% if resultado %}
+            <div class="resultado">
+                Resultado: {{ resultado }}
+            </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        Sistema de Clasificación de Café con Lógica Difusa | Proyecto Flask
+    </footer>
+</body>
+</html>
